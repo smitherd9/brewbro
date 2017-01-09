@@ -30,6 +30,12 @@
     "_build:css": "cpr css build/css",
     "watch:css": "run-s build:css _watch:css",
     "_watch:css": "chokidar css/**/* -c \"npm run build:css\"",
+    "mkdir:img": "run-s mkdir",
+    "clean:img": "rimraf build/img",
+    "build:img": "run-s clean:img mkdir:img _build:img",
+    "_build:img": "cpr img build/img",
+    "watch:img": "run-s build:img _watch:img",
+    "_watch:img": "chokidar img/**/* -c \"npm run build:img\"",
     "mkdir:assets": "run-s mkdir",
     "clean:assets": "rimraf build/assets",
     "build:assets": "run-s clean:assets mkdir:assets _build:assets",
@@ -61,11 +67,14 @@
     "webpack": "^1.13.1"
   },
   "dependencies": {
+    "express": "^4.14.0",
     "isomorphic-fetch": "^2.2.1",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-redux": "^4.4.5",
+    "react-router": "^3.0.0",
     "redux": "^3.6.0",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "unirest": "^0.5.1"
   }
 }
