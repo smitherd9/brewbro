@@ -1,7 +1,7 @@
 {
-  "name": "thinkful-react-starter",
+  "name": "BrewBro",
   "version": "0.0.1",
-  "description": "A React template",
+  "description": "An app to recommend delicious beers",
   "main": "js/index.js",
   "scripts": {
     "start": "http-server -c-1 build",
@@ -43,7 +43,7 @@
     "watch:assets": "run-s build:assets _watch:assets",
     "_watch:assets": "chokidar assets/**/* -c \"npm run build:assets\""
   },
-  "author": "Joe Turner <joe@oampo.co.uk>",
+  "author": "Daniel Smither smitherd9@gmail.com",
   "license": "UNLICENSED",
   "devDependencies": {
     "babel-cli": "^6.11.4",
