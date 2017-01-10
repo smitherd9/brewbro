@@ -1,0 +1,98 @@
+/*Navbar Styles*/
+
+.navbar {
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0;
+    border: none;
+    height: 70px;
+    font-family: 'Carter-One', cursive;   
+
+}
+
+/*Jumbotron*/
+
+
+.jumbotron {
+	background-image: url("../img/beer-and-keg.jpg");
+	background-size: cover;
+	height: 50em;
+}
+
+.jumbotronText {
+	margin: 0 auto;
+	text-align: center;
+	color: #97f4e9;
+	font-family: 'Carter-One', cursive;
+}
+
+
+
+/*Form Styles*/
+
+.form-control {	
+	width: 301px;
+	height: 36px;
+	border: 2px #c5c5c5 solid;
+	border-radius: 4px;
+	padding: 15px;
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+
+
+.box {
+	background-color: white;
+	width: 27em;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 1em;
+	margin: auto;
+	border-radius: 4px;
+}
+
+
+.control-label {
+	font-size: 16px;
+	font-weight: bold;
+	font-family: 'Roboto', sans-serif;
+	
+}
+
+
+/* Placeholder Text Styles */
+
+
+::-webkit-input-placeholder {
+   font-size: 16px;
+}
+
+:-moz-placeholder { 
+   font-size: 16px; 
+}
+
+::-moz-placeholder { 
+   font-size: 16px;  
+}
+
+:-ms-input-placeholder {  
+   font-size: 16px;  
+}
+
+
+/*Modal Box Styles*/
+
+
+.modal-content {
+	background-color: gray;
+}
+
+.modal-header {
+	font-family: 'Carter-One', cursive;
+	color: blue;
+	font-size: 24px;
+}
+
+.modal-body {
+	color: white;
+}

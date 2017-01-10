@@ -21,10 +21,11 @@ export default class AppContainer extends React.Component {
 	render() {
 		return (
 		<div className="appContainer">
-		<Header />		
-
-		{this.props.children}			
+		<Header />
 		
+		{this.props.children}
+
+
 		</div>
 
 		);
