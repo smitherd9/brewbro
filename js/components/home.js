@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Row, Col, Jumbotron } from 'react-bootstrap';
 import SignUp from './signup';
+import RandomBeer from './random-beer';
 
 
 
@@ -14,11 +15,12 @@ export default class Home extends React.Component {
 				<div className="jumbotronText">
 					<h1>Welcome to BrewBro</h1>
 					<h3>Changing the way you discover great beer</h3>
-				</div>		
+				</div>
+				<RandomBeer  />		
 			</Jumbotron>		
 			
 			<Row>
-			<SignUp />
+			
 			</Row>
 			
 			

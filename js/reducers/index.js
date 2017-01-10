@@ -4,8 +4,9 @@ import { combineReducers, createStore } from 'redux';
 
 const initialState = {
  	userAdded: false,
- 	showModal: false
- 	// formInput: ""
+ 	showModal: false,
+ 	showSignUpModal: false,
+ 	randomBeer: []
 }
 
 
@@ -48,6 +49,40 @@ const BeerReducer = function(state, action) {
 
         });
     }
+
+    if (action.type === actions.SHOW_SIGNUP_MODAL) {
+
+    	return Object.assign({}, state, {
+            showSignUpModal: true 
+
+        });
+    }
+
+    if (action.type === actions.HIDE_SIGNUP_MODAL) {
+
+    	return Object.assign({}, state, {
+            showSignUpModal: false
+
+        });
+    }
+
+    if (action.type === actions.RANDOM_BEER_SUCCESS) {
+
+    	return Object.assign({}, state, {
+            randomBeer: action.response   
+
+        });
+    }
+
+
+    if (action.type === actions.RANDOM_BEER_ERROR) {
+
+    	return Object.assign({}, state, {
+            randomBeer: action.error   
+
+        });
+    }
+
 
   return state;
 

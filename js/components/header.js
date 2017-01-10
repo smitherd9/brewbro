@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import store from '../store';
 import actions from '../actions/index';
 import { Grid, Row, Col, Navbar, Nav, NavItem, NavDropdown, MenuItem, Modal, Button } from 'react-bootstrap';
+import SignUp from './signup';
+import { browserHistory } from 'react-router';
 
 
 
@@ -20,29 +22,46 @@ class Header extends React.Component {
 		store.dispatch(actions.hideModal());
 	}
 
+	signUp(){
+		store.dispatch(actions.showSignUpModal());
+	}
+
+	closeSignUp(){
+		store.dispatch(actions.hideSignUpModal());
+	}
+
+	home() {
+		browserHistory.push('/');
+	}
+
+	contactPage() {		
+		browserHistory.push('/contact');
+	}
+
+
 	render() {
 		return (
 			<div className="header">
 			  <Navbar inverse collapseOnSelect fixedTop>
     			<Navbar.Header>
       			<Navbar.Brand>
-        		<a href="#">BrewBro</a>
+        		<NavItem onClick={this.home}>BrewBro</NavItem>
       			</Navbar.Brand>      			
     			</Navbar.Header>
     			<Navbar.Collapse>
       			<Nav>
-        			<NavItem eventKey={1} href="#">Sign Up</NavItem>
+        			<NavItem eventKey={1} onClick={this.signUp}>Sign Up</NavItem>
         			<NavItem eventKey={2} href="#">Link</NavItem>
       			</Nav>
 
       			<Nav pullRight>
         			<NavItem eventKey={1} onClick={this.open}>What is BrewBro?</NavItem>
-        			<NavItem eventKey={2} href="#">Contact Us</NavItem>
+        			<NavItem eventKey={2} onClick={this.contactPage}>Contact Us</NavItem>
       			</Nav>
     			</Navbar.Collapse>
   				</Navbar>
 
-  				<Modal show={this.props.showModal} onHide={this.close}>
+  				<Modal show={this.props.showModal} onHide={this.closeSignUp}>
           		<Modal.Header closeButton>
             	<Modal.Title>What is BrewBro?</Modal.Title>
           		</Modal.Header>
@@ -60,6 +79,18 @@ class Header extends React.Component {
           			</Modal.Footer>
         		</Modal>
 
+        		<Modal show={this.props.showSignUpModal} onHide={this.closeSignUp}>
+          		<Modal.Header closeButton>
+            	<Modal.Title>Sign Up</Modal.Title>
+          		</Modal.Header>
+          			<Modal.Body>
+            			<SignUp />            			
+            		</Modal.Body>
+            		<Modal.Footer>
+            			<Button onClick={this.closeSignUp}>Close</Button>
+          			</Modal.Footer>
+        		</Modal>
+
 
 			</div>
 			
@@ -72,6 +103,8 @@ class Header extends React.Component {
 let mapStateToProps = (state, props) => {
     return {
     	showModal: state.showModal,
+    	showSignUpModal: state.showSignUpModal
+    	
     	
         
     }

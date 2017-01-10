@@ -47,6 +47,7 @@
 	padding-left: 40px;
 	padding-right: 40px;
 	padding-top: 1em;
+	padding-bottom: 1em;
 	margin: auto;
 	border-radius: 4px;
 }
@@ -56,6 +57,7 @@
 	font-size: 16px;
 	font-weight: bold;
 	font-family: 'Roboto', sans-serif;
+	color: #59d0ea;
 	
 }
 
@@ -84,7 +86,7 @@
 
 
 .modal-content {
-	background-color: gray;
+	background-color: #133b67;
 }
 
 .modal-header {
@@ -95,4 +97,29 @@
 
 .modal-body {
 	color: white;
+}
+
+.modal-title {
+	text-align: center;
+}
+
+
+
+/*Button Styles*/
+
+.randomBeer {
+	margin: 0 auto;
+	text-align: center;
+}
+
+#btn-randomBeer {
+	margin-top: 5em;
+}
+
+
+
+/*Contact Page*/
+
+.contact-page {
+	margin-top: 10em;
 }
