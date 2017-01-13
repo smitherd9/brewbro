@@ -6,7 +6,8 @@ const initialState = {
  	userAdded: false,
  	showModal: false,
  	showSignUpModal: false,
- 	randomBeer: []
+ 	randomBeer: null,
+ 	userLoggedIn: false
 }
 
 
@@ -14,10 +15,21 @@ const initialState = {
 const BeerReducer = function(state, action) {    
     state = state || initialState;
 
-    if (action.type === actions.NEW_USER) {
+    if (action.type === actions.ADD_USER) {
 
     	return Object.assign({}, state, {
-            userAdded: true
+            userAdded: true,
+            userLoggedIn: true
+            
+
+
+        });
+    }
+
+    if (action.type === actions.ADD_USER_ERROR) {
+
+    	return Object.assign({}, state, {
+            userAdded: false
             
 
 

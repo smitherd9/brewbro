@@ -10,6 +10,15 @@ const addNewUser = (user) => {
 	}
 }
 
+const ADD_USER_ERROR = 'ADD_USER_ERROR';
+const addNewUserError = (user) => {
+	return {
+		type: ADD_USER_ERROR,
+		user: user
+		
+	}
+}
+
 
 // Validate input forms
 
@@ -66,7 +75,7 @@ const hideSignUpModal = () => {
 const RANDOM_BEER_SUCCESS = 'RANDOM_BEER_SUCCESS';
 const randomBeerSuccess = (response) => {
 	return {
-		type: RANDOM_BEER,
+		type: RANDOM_BEER_SUCCESS,
 		response: response		
 		
 	}
@@ -86,6 +95,41 @@ const randomBeerError = (response, error) => {
 
 
 // Action Creators 
+
+const addUser = function() {
+    return function(dispatch) {
+        var url = new Request('http://localhost:8000/user', 
+
+        	{method: 'POST', 
+        	headers: {
+  				'Accept': 'application/json',
+  				'Content-Type': 'application/json'
+  			}
+   		});
+        return fetch(url).then(function(response) {
+            if (response.status < 200 || response.status >= 300) {
+                var error = new Error(response.statusText)
+                error.response = response
+                throw error;
+            }
+            return response;
+        })
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+        console.log(data);            
+            return dispatch(
+                addNewUser(data)
+            );
+        })
+        .catch(function(data, err) {
+            return dispatch(
+                addNewUserError(data, err)
+            );
+        });
+    }
+};
 
 const getRandomBeer = function() {
     return function(dispatch) {
@@ -108,7 +152,8 @@ const getRandomBeer = function() {
         .then(function(response) {
             return response.json();
         })
-        .then(function(data) {            
+        .then(function(data) {
+        console.log(data);            
             return dispatch(
                 randomBeerSuccess(data)
             );

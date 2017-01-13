@@ -3,9 +3,9 @@ import actions from '../actions/index';
 import store from '../store';
 import { connect } from 'react-redux';
 import { Grid, Row, Col, Jumbotron } from 'react-bootstrap';
-import { User } from '../users';
-import mongoose from 'mongoose';
-// const mongoose = require('mongoose');
+// import { User } from '../users';
+// import mongoose from 'mongoose';
+
 
 
 

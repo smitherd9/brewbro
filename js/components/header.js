@@ -38,6 +38,10 @@ class Header extends React.Component {
 		browserHistory.push('/contact');
 	}
 
+	addUser(){
+		store.dispatch(actions.addUser());
+	}
+
 
 	render() {
 		return (
@@ -51,7 +55,7 @@ class Header extends React.Component {
     			<Navbar.Collapse>
       			<Nav>
         			<NavItem eventKey={1} onClick={this.signUp}>Sign Up</NavItem>
-        			<NavItem eventKey={2} href="#">Link</NavItem>
+        			<NavItem eventKey={2} href="#">Hello {this.props.userName}</NavItem>
       			</Nav>
 
       			<Nav pullRight>
@@ -74,7 +78,7 @@ class Header extends React.Component {
             				just get a delicious random beer by clicking below.</p>
             			
             		</Modal.Body>
-            		<Modal.Footer>
+            		<Modal.Footer>            			
             			<Button onClick={this.close}>Close</Button>
           			</Modal.Footer>
         		</Modal>
@@ -87,6 +91,7 @@ class Header extends React.Component {
             			<SignUp />            			
             		</Modal.Body>
             		<Modal.Footer>
+            			<Button onClick={this.addUser}>Submit</Button>
             			<Button onClick={this.closeSignUp}>Close</Button>
           			</Modal.Footer>
         		</Modal>
@@ -103,7 +108,10 @@ class Header extends React.Component {
 let mapStateToProps = (state, props) => {
     return {
     	showModal: state.showModal,
-    	showSignUpModal: state.showSignUpModal
+    	showSignUpModal: state.showSignUpModal,
+    	userLoggedIn: state.userLoggedIn,
+    	userAdded: state.userAdded,
+    	userName: state.userName
     	
     	
         

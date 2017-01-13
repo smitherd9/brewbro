@@ -1,11 +1,23 @@
 import React from 'react';
+import store from '../store';
+import { connect } from 'react-redux';
 import { Grid, Row, Col, Jumbotron } from 'react-bootstrap';
 import SignUp from './signup';
 import RandomBeer from './random-beer';
+import RandomBeerDisplay from './random-beer-display';
 
 
 
-export default class Home extends React.Component {
+class Home extends React.Component {
+	randomBeerDisplay;
+	constructor(props){
+		super(props);
+		this.randomBeerDisplay = null;
+	}
+
+	componentWillUpdate(){
+		this.randomBeerDisplay = <RandomBeerDisplay />;
+	}
 
 	render() {
 		return (
@@ -20,7 +32,7 @@ export default class Home extends React.Component {
 			</Jumbotron>		
 			
 			<Row>
-			
+			{this.randomBeerDisplay}
 			</Row>
 			
 			
@@ -30,3 +42,14 @@ export default class Home extends React.Component {
 			);
 	}
 }
+
+
+
+let mapStateToProps = (state, props) => {
+    return {
+    	randomBeer: state.randomBeer  	
+        
+    }
+};
+
+export default connect(mapStateToProps)(Home);
