@@ -37,7 +37,7 @@ describe('/beer/random', () => {
                 console.log(res.body);
                 res.should.have.status(200);
                 res.should.be.json;       
-                res.body.should.be.a('array');
+                res.body.should.be.a('object');
                 res.body.should.all.have.property('name');
                 res.body.should.all.have.property('abv');
 

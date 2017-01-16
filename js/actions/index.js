@@ -91,6 +91,22 @@ const randomBeerError = (response, error) => {
 	}
 }
 
+const SHOW_LOADING_ANIM = 'SHOW_LOADING_ANIM';
+const showLoadingAnim = () => {
+	return {
+		type: SHOW_LOADING_ANIM
+		
+	}
+}
+
+const SHOW_RANDOM_BEER_BUTTON = 'SHOW_RANDOM_BEER_BUTTON';
+const showRandomBeerButton = () => {
+	return {
+		type: SHOW_RANDOM_BEER_BUTTON
+		
+	}
+}
+
 
 
 
@@ -194,3 +210,9 @@ exports.randomBeerSuccess = randomBeerSuccess;
 
 exports.RANDOM_BEER_ERROR = RANDOM_BEER_ERROR;
 exports.randomBeerError = randomBeerError;
+
+exports.SHOW_LOADING_ANIM = SHOW_LOADING_ANIM;
+exports.showLoadingAnim = showLoadingAnim;
+
+exports.SHOW_RANDOM_BEER_BUTTON = SHOW_RANDOM_BEER_BUTTON;
+exports.showRandomBeerButton = showRandomBeerButton;

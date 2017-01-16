@@ -28,6 +28,10 @@ class SignUp extends React.Component {
     console.log(e.target.value);
   }
 
+    onClick(){
+        
+  }
+
 
 
 	render() {

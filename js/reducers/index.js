@@ -6,8 +6,10 @@ const initialState = {
  	userAdded: false,
  	showModal: false,
  	showSignUpModal: false,
+ 	showLoadingAnim: false,
  	randomBeer: null,
- 	userLoggedIn: false
+ 	userLoggedIn: false,
+ 	userName: ""
 }
 
 
@@ -81,7 +83,8 @@ const BeerReducer = function(state, action) {
     if (action.type === actions.RANDOM_BEER_SUCCESS) {
 
     	return Object.assign({}, state, {
-            randomBeer: action.response   
+            randomBeer: action.response           
+             
 
         });
     }
@@ -91,6 +94,22 @@ const BeerReducer = function(state, action) {
 
     	return Object.assign({}, state, {
             randomBeer: action.error   
+
+        });
+    }
+
+    if (action.type === actions.SHOW_LOADING_ANIM) {
+
+    	return Object.assign({}, state, {
+            showLoadingAnim: true  
+
+        });
+    }
+
+    if (action.type === actions.SHOW_RANDOM_BEER_BUTTON) {
+
+    	return Object.assign({}, state, {
+            showLoadingAnim: false 
 
         });
     }

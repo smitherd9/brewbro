@@ -16,7 +16,8 @@
 .jumbotron {
 	background-image: url("../img/beer-and-keg.jpg");
 	background-size: cover;
-	height: 50em;
+	height: 55em;
+	margin-bottom: 0;
 }
 
 .jumbotronText {
@@ -25,6 +26,18 @@
 	color: #97f4e9;
 	font-family: 'Carter-One', cursive;
 }
+
+.contact-page {
+	background-image: url("../img/beer-with-hops.jpg");
+	background-size: cover;
+	height: 55em;
+	margin-bottom: 0;
+}
+
+.contact-page h1 h3 {
+	color: white;
+}
+
 
 
 
@@ -49,7 +62,9 @@
 	padding-top: 1em;
 	padding-bottom: 1em;
 	margin: auto;
+	border: 1px solid blue;
 	border-radius: 4px;
+	
 }
 
 
@@ -57,8 +72,19 @@
 	font-size: 16px;
 	font-weight: bold;
 	font-family: 'Roboto', sans-serif;
-	color: #59d0ea;
+	color: #1e2e4d;
 	
+}
+
+.contact-form {
+	/*text-align: center;*/
+	/*margin-left: 13.56em;*/
+	margin: 0 auto;
+}
+
+.commentsForm {
+	height: 15em;
+	width: 15em;
 }
 
 
@@ -86,12 +112,12 @@
 
 
 .modal-content {
-	background-color: #133b67;
+	background-color: #337ab7;   
 }
 
 .modal-header {
 	font-family: 'Carter-One', cursive;
-	color: blue;
+	/*color: blue;*/
 	font-size: 24px;
 }
 
@@ -101,6 +127,14 @@
 
 .modal-title {
 	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	color: #2c003a;
+
+}
+
+.modal-footer {
+
 }
 
 
@@ -116,10 +150,116 @@
 	margin-top: 5em;
 }
 
+.abcRioButton {
+	margin: auto;
+	margin-top: 2em;
+	border-radius: 5px;
+}
+
+.signOut {
+	margin: 0 auto;
+	text-align: center;
+}
+
+
 
 
 /*Contact Page*/
 
 .contact-page {
 	margin-top: 10em;
+}
+
+
+
+
+/*Random Beer Display Styles*/
+
+.randomBeerDisplayRow {
+	margin-bottom: 0;
+}
+
+.randomBeerDisplay  {
+	background-image: url("../img/rustic-wood.jpg"); 
+	background-size: cover;
+	height: 30em;
+	margin-top: 0;
+
+}
+
+.randomBeerDisplay h1 {
+	font-family: 'Roboto Slab', cursive;
+	text-align: center;
+	text-decoration: underline;
+	color: white;
+
+}
+
+.randomBeerName {
+	margin: 0 auto;
+	text-align: center;
+	background: rgba(0, 0, 0, 0.75);
+	margin-top: 5em;
+	width: 50%;
+	border-radius: 2px;
+	
+}
+
+.randomBeerName h2  {
+	
+	font-family: 'Indie Flower', cursive;
+	font-weight: bold;
+	margin: auto;
+	width: 50%;
+	color: white;
+	font-size: 48px;
+
+}
+
+.randomBeerDesc {
+	margin: 0 auto;
+	text-align: center;
+	width: 50%;
+	background: rgba(0, 0, 0, 0.75);
+}
+
+.randomBeerDesc p {
+	margin: auto;
+	font-family: 'Indie Flower', cursive;	
+	width: 50%;
+	color: white;
+	font-size: 18px;
+	color: red;
+}
+
+
+
+/*Font Awesome Icon Styles*/
+
+.fa.fa-beer {
+	padding: 0.2em;
+}
+
+.fa.fa-user-circle {
+	padding: 0.2em;
+}
+
+
+/*Progress Bar Styles*/
+
+.progress {
+	width: 50%;
+	margin: auto;
+}
+
+
+/*Images*/
+
+.hops img {
+	border: 2px solid gray;
+	border-radius: 50%;
+	width: 25%;
+	height: 25%;
+	margin: 0 auto;
+	text-align: center;
 }

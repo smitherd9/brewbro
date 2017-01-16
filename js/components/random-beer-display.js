@@ -26,20 +26,30 @@ class RandomBeerDisplay extends React.Component {
 
 
 			return (
-				<div className="randomBeerDisplay"> 
-					<section className="box">
-					<h2>{this.props.randomBeer.name}</h2>
-					<p>{this.props.randomBeer.description}</p>
-					</section>
+				<div className="randomBeerDisplay">
+				<h1>Your Tasty Temptation</h1>
+					<Row className="randomBeerDisplayRow">
+						
+							
+						
+						<Col md={12}> 
+							<div className="randomBeerName">
+								<h2>Name: {this.props.randomBeer.name}</h2>				
+							</div>
+						</Col>
+					</Row>
+					<Row>
+						<Col md={12}>
+							<div className="randomBeerDesc">
+								<p>Description: {this.props.randomBeer.description ? (this.props.randomBeer.description) : (this.props.randomBeer.style.description) }</p>
+							</div>
+						</Col>
+					</Row>
 				</div>
 
 				);
 
 	}
-
-
-
-
 
 
 }

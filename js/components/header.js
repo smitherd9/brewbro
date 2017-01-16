@@ -54,12 +54,12 @@ class Header extends React.Component {
     			</Navbar.Header>
     			<Navbar.Collapse>
       			<Nav>
-        			<NavItem eventKey={1} onClick={this.signUp}>Sign Up</NavItem>
+        			<NavItem eventKey={1} onClick={this.signUp}><i className="fa fa-user-circle fa-lg" aria-hidden="true"></i>Sign Up</NavItem>
         			<NavItem eventKey={2} href="#">Hello {this.props.userName}</NavItem>
       			</Nav>
 
       			<Nav pullRight>
-        			<NavItem eventKey={1} onClick={this.open}>What is BrewBro?</NavItem>
+        			<NavItem eventKey={1} onClick={this.open}><i className="fa fa-beer" aria-hidden="true"></i>What is BrewBro?</NavItem>
         			<NavItem eventKey={2} onClick={this.contactPage}>Contact Us</NavItem>
       			</Nav>
     			</Navbar.Collapse>
@@ -85,7 +85,7 @@ class Header extends React.Component {
 
         		<Modal show={this.props.showSignUpModal} onHide={this.closeSignUp}>
           		<Modal.Header closeButton>
-            	<Modal.Title>Sign Up</Modal.Title>
+            	<Modal.Title> Sign Up</Modal.Title>
           		</Modal.Header>
           			<Modal.Body>
             			<SignUp />            			

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import actions from '../actions/index';
 import store from '../store';
 import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 
@@ -40,8 +41,16 @@ class ContactForm extends React.Component {
             		placeholder="Enter your email address"
             		onChange={this.handleChange} />
 
+              <ControlLabel>Comments</ControlLabel>
+              <FormControl className="commentsForm"
+                type="text"
+                value={this.props.formInput}
+                placeholder="Leave any questions or comments here"
+                onChange={this.handleChange} />
+
           				
-          			<FormControl.Feedback />          			
+          			<FormControl.Feedback />
+
         		</FormGroup>
     		</form>	
 

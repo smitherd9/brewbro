@@ -105,9 +105,7 @@ app.put('/user/:id', function(req, res){
 
 
 
-app.get('/beer/random', function(req, res) {
-    // req.query.beer = req.params.beer;
-    // req.query.beer = '/beer/random';     
+app.get('/beer/random', function(req, res) {   
     req.query.key = '9e764e155ee83a9a98485bdf8ccbff50';
     	console.log(req.query);
         unirest.get('http://api.brewerydb.com/v2/beer/random?' )
