@@ -5,7 +5,8 @@ const ADD_USER = 'ADD_USER';
 const addNewUser = (user) => {
 	return {
 		type: ADD_USER,
-		user: user
+		user: user,
+        userName: user.userName
 		
 	}
 }
@@ -24,10 +25,11 @@ const addNewUserError = (user) => {
 
 
 const FORM_VALIDATOR = 'FORM_VALIDATOR';
-const formValidator = (input) => {
+const formValidator = (inputType, inputValue) => {
 	return {
 		type: FORM_VALIDATOR,
-		input: input
+		inputType: inputType,
+        inputValue: inputValue
 		
 	}
 }
@@ -92,19 +94,40 @@ const randomBeerError = (response, error) => {
 }
 
 const SHOW_LOADING_ANIM = 'SHOW_LOADING_ANIM';
-const showLoadingAnim = () => {
+const showLoadingAnim = (value) => {
 	return {
-		type: SHOW_LOADING_ANIM
+		type: SHOW_LOADING_ANIM,
+        value: value
 		
 	}
 }
 
-const SHOW_RANDOM_BEER_BUTTON = 'SHOW_RANDOM_BEER_BUTTON';
-const showRandomBeerButton = () => {
-	return {
-		type: SHOW_RANDOM_BEER_BUTTON
-		
-	}
+
+const HIDE_LOADING_ANIM = 'HIDE_LOADING_ANIM';
+const hideLoadingAnim = (value) => {
+    return {
+        type: HIDE_LOADING_ANIM,
+        value: value
+        
+    }
+}
+
+const RESET_NOW = 'RESET_NOW';
+const resetNow = () => {
+    return {
+        type: RESET_NOW
+        
+        
+    }
+}
+
+
+
+const TICK = 'TICK';
+const tick = () => {
+    return {
+        type: TICK,
+    }
 }
 
 
@@ -112,7 +135,7 @@ const showRandomBeerButton = () => {
 
 // Action Creators 
 
-const addUser = function() {
+const addUser = function(name, username, password, email) {
     return function(dispatch) {
         var url = new Request('http://localhost:8000/user', 
 
@@ -120,7 +143,13 @@ const addUser = function() {
         	headers: {
   				'Accept': 'application/json',
   				'Content-Type': 'application/json'
-  			}
+  			},
+            body: JSON.stringify({
+                name: name,
+                username: username,
+                password: password,
+                email: email
+            }) 
    		});
         return fetch(url).then(function(response) {
             if (response.status < 200 || response.status >= 300) {
@@ -187,6 +216,7 @@ const getRandomBeer = function() {
 
 exports.ADD_USER = ADD_USER;
 exports.addNewUser = addNewUser;
+exports.addUser = addUser;
 
 exports.FORM_VALIDATOR = FORM_VALIDATOR;
 exports.formValidator = formValidator;
@@ -214,5 +244,13 @@ exports.randomBeerError = randomBeerError;
 exports.SHOW_LOADING_ANIM = SHOW_LOADING_ANIM;
 exports.showLoadingAnim = showLoadingAnim;
 
-exports.SHOW_RANDOM_BEER_BUTTON = SHOW_RANDOM_BEER_BUTTON;
-exports.showRandomBeerButton = showRandomBeerButton;
+exports.HIDE_LOADING_ANIM = HIDE_LOADING_ANIM;
+exports.hideLoadingAnim = hideLoadingAnim;
+
+exports.TICK = TICK;
+exports.tick = tick;
+
+exports.RESET_NOW= RESET_NOW;
+exports.resetNow = resetNow;
+
+

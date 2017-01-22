@@ -9,7 +9,8 @@ const initialState = {
  	showLoadingAnim: false,
  	randomBeer: null,
  	userLoggedIn: false,
- 	userName: ""
+ 	userName: "",
+    now: 0
 }
 
 
@@ -21,7 +22,8 @@ const BeerReducer = function(state, action) {
 
     	return Object.assign({}, state, {
             userAdded: true,
-            userLoggedIn: true
+            userLoggedIn: true,
+            userName: actions.user.userName
             
 
 
@@ -40,11 +42,9 @@ const BeerReducer = function(state, action) {
 
 
     if (action.type === actions.FORM_VALIDATOR) {
-
-    	return Object.assign({}, state, {
-            formInput: action.formInput           
-
-        });
+        let obj = {}
+        obj[action.inputType] = action.inputValue
+    	return Object.assign({}, state, obj);
     }
 
 
@@ -106,11 +106,23 @@ const BeerReducer = function(state, action) {
         });
     }
 
-    if (action.type === actions.SHOW_RANDOM_BEER_BUTTON) {
+    if (action.type === actions.HIDE_LOADING_ANIM) {
 
-    	return Object.assign({}, state, {
-            showLoadingAnim: false 
+        return Object.assign({}, state, {
+            showLoadingAnim: false  
 
+        });
+    }
+
+    if(action.type === actions.TICK){
+        return Object.assign({}, state, {
+            now: state.now + Math.floor((Math.random() * 100) + 2)
+        });
+    }
+
+    if(action.type === actions.RESET_NOW){
+        return Object.assign({}, state, {
+            now: 0
         });
     }
 

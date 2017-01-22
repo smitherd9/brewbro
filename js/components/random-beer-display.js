@@ -2,13 +2,17 @@ import React from 'react';
 import actions from '../actions/index';
 import store from '../store';
 import { connect } from 'react-redux';
-import { Button, Grid, Row, Col, FormControl, FormGroup, ControlLabel } from 'react-bootstrap';
+import { Button, Grid, Row, Col, FormControl, FormGroup, ControlLabel, Clearfix } from 'react-bootstrap';
+import RandomBeerButton from './random-beer-btn';
+import RandomBeer from './random-beer';
 
 
 class RandomBeerDisplay extends React.Component {
+	randomBeer;
 	constructor(props){
 		super(props);
 		this.handleClick = this.handleClick.bind(this);
+		this.randomBeer = null;
 
 	}
 
@@ -16,9 +20,13 @@ class RandomBeerDisplay extends React.Component {
 
 		}
 
+		componentWillUpdate(){
+		this.randomBeer= <RandomBeer />;
+		}
+
 
 		componentDidUpdate() {
-			console.log(store.getState());
+			console.log(store.getState());			
 		}
 
 		render() {
@@ -27,24 +35,24 @@ class RandomBeerDisplay extends React.Component {
 
 			return (
 				<div className="randomBeerDisplay">
-				<h1>Your Tasty Temptation</h1>
-					<Row className="randomBeerDisplayRow">
-						
-							
-						
-						<Col md={12}> 
-							<div className="randomBeerName">
-								<h2>Name: {this.props.randomBeer.name}</h2>				
-							</div>
-						</Col>
-					</Row>
-					<Row>
-						<Col md={12}>
-							<div className="randomBeerDesc">
-								<p>Description: {this.props.randomBeer.description ? (this.props.randomBeer.description) : (this.props.randomBeer.style.description) }</p>
-							</div>
-						</Col>
-					</Row>
+
+				<Row>
+					<Col md={4}>
+					<div className="brewBuddyDescription-random">
+						<h2>At BrewBuddy, we love great beer and want to share that love with the world.</h2>
+						<p>We search through thousands of different beers, including both tried and true varieties and craft brews
+						 to recommend new flavors to wow your palette.</p>
+						<p>Give it a try and find a new tasty beer today!</p>
+						<RandomBeerButton  />
+					</div>	
+					</Col>
+					<Col md={8}>
+					<Clearfix>{this.randomBeer}</Clearfix>
+					</Col>
+				</Row>
+
+
+
 				</div>
 
 				);
@@ -59,7 +67,7 @@ class RandomBeerDisplay extends React.Component {
 
 let mapStateToProps = (state, props) => {
     return {
-    	randomBeer: state.randomBeer  	
+    	randomBeer: state.randomBeer    	 	
         
     }
 };

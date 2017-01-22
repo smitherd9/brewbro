@@ -24,12 +24,13 @@ class SignUp extends React.Component {
 
   	handleChange(e) {
     // this.setState({ value: e.target.value });
-    store.dispatch(actions.formValidator(e.target.value));
+    store.dispatch(actions.formValidator(e.target.name, e.target.value));
     console.log(e.target.value);
   }
 
-    onClick(){
-        
+    onClick(e){
+        e.preventDefault();
+
   }
 
 
@@ -44,6 +45,7 @@ class SignUp extends React.Component {
         			>
           		<ControlLabel>Name</ControlLabel>
           		<FormControl
+                    name="name"
             		type="text"
             		value={this.props.formInput}
             		placeholder="Enter your name"
@@ -51,6 +53,7 @@ class SignUp extends React.Component {
 
             	<ControlLabel>Email</ControlLabel>
             	<FormControl
+                    name="email"
             		type="text"
             		value={this.props.formInput}
             		placeholder="Enter your email address"
@@ -58,6 +61,7 @@ class SignUp extends React.Component {
 
             	<ControlLabel>Username</ControlLabel>
             	<FormControl
+                    name="username"
             		type="text"
             		value={this.props.formInput}
             		placeholder="Choose a username"
@@ -65,6 +69,7 @@ class SignUp extends React.Component {
 
             	<ControlLabel>Password</ControlLabel>
             	<FormControl
+                    name="password"
             		type="text"
             		value={this.props.formInput}
             		placeholder="Enter your password"

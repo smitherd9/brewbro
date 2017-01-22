@@ -3,20 +3,15 @@ import store from '../store';
 import { connect } from 'react-redux';
 import { Grid, Row, Col, Jumbotron, Button } from 'react-bootstrap';
 import SignUp from './signup';
-import RandomBeer from './random-beer';
 import RandomBeerDisplay from './random-beer-display';
 
 
 
-class Home extends React.Component {
-	randomBeerDisplay;
+export default class Home extends React.Component {
+	
 	constructor(props){
 		super(props);
-		this.randomBeerDisplay = null;
-	}
-
-	componentWillUpdate(){
-		this.randomBeerDisplay = <RandomBeerDisplay />;
+		
 	}
 
 	signOut() {
@@ -32,10 +27,10 @@ class Home extends React.Component {
 					
 			<Jumbotron>
 				<div className="jumbotronText">
-					<h1>Welcome to BrewBro</h1>
+					<h1>Welcome to BrewBuddy</h1>
 					<h3>Changing the way you discover great beer</h3>
 				</div>
-				<RandomBeer  />
+				
 				<div className="g-signin2" data-onsuccess="onSignIn"></div>
 				<div className="signOut">
 				<Button bsStyle="primary" bsSize="large" id="btn-signOut" onClick={this.signOut}>Sign Out </Button>
@@ -43,7 +38,7 @@ class Home extends React.Component {
 			</Jumbotron>		
 			
 			<Row>
-			{this.randomBeerDisplay}
+			<RandomBeerDisplay />
 			</Row>
 			
 			
@@ -56,11 +51,11 @@ class Home extends React.Component {
 
 
 
-let mapStateToProps = (state, props) => {
-    return {
-    	randomBeer: state.randomBeer  	
+// let mapStateToProps = (state, props) => {
+//     return {
+//     	randomBeer: state.randomBeer  	
         
-    }
-};
+//     }
+// };
 
-export default connect(mapStateToProps)(Home);
+// export default connect(mapStateToProps)(Home);

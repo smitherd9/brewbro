@@ -50,7 +50,12 @@ app.get('/user', function(req, res) {
 });
 
 app.post('/user', function(req, res) {
+    console.log(req.body);
 	User.create({
+        name: req.body.name,
+        username: req.body.username,
+        password: req.body.password,
+        email: req.body.email
 
 	}, function(err, user) {
 		if (err) {

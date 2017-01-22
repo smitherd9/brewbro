@@ -10,6 +10,10 @@
 
 }
 
+.navbar-header li {
+	list-style-type: none;
+}
+
 /*Jumbotron*/
 
 
@@ -55,15 +59,15 @@
 
 
 .box {
-	background-color: white;
+	background-color: #6b6168;
 	width: 27em;
 	padding-left: 40px;
 	padding-right: 40px;
 	padding-top: 1em;
 	padding-bottom: 1em;
 	margin: auto;
-	border: 1px solid blue;
-	border-radius: 4px;
+/*	border: 1px solid blue;
+	border-radius: 4px;*/
 	
 }
 
@@ -71,8 +75,8 @@
 .control-label {
 	font-size: 16px;
 	font-weight: bold;
-	font-family: 'Roboto', sans-serif;
-	color: #1e2e4d;
+	font-family: 'Carter-One', sans-serif;
+	color: whitesmoke;
 	
 }
 
@@ -112,30 +116,68 @@
 
 
 .modal-content {
-	background-color: #337ab7;   
+	background-color: #5b5058;
+	border-radius: 4px;   
 }
 
 .modal-header {
 	font-family: 'Carter-One', cursive;
-	/*color: blue;*/
+	background-color: #7b7279;
 	font-size: 24px;
+	border-radius: 4px; 
 }
 
 .modal-body {
-	color: white;
+	background-color: #5b5058;
+	color: #eeedee;
+	font-family: 'Indie Flower', cursive;
+	text-align: center;
 }
+
+
 
 .modal-title {
 	text-align: center;
 	font-size: 24px;
-	font-weight: bold;
-	color: #2c003a;
+	font-weight: bold;	
+	color: whitesmoke;
 
 }
 
 .modal-footer {
-
+	background-color: #7b7279;
+	border-radius: 4px; 
 }
+
+.modalFooter-btn {	
+	box-shadow: 3px 4px 0px 0px #1564ad;
+	background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);	
+	background-color:#79bbff;
+	border-radius:5px;
+	border:1px solid #337bc4;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: 'Indie Flower', cursive;
+	font-size:15px;
+	font-weight:bold;
+	padding:5px 25px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528ecc;
+}
+
+.modalFooter-btn:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #378de5), color-stop(1, #79bbff));
+	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+	background-color:#378de5;
+}
+
+.modalFooter-btn:active {
+	position:relative;
+	top:1px;
+}
+
+
 
 
 
@@ -147,7 +189,18 @@
 }
 
 #btn-randomBeer {
-	margin-top: 5em;
+	margin-top: 1em;
+	font-family: 'Indie Flower', cursive;
+	font-weight: bold;
+	box-shadow: 3px 4px 0px 0px #883b00;
+	border-radius:5px;
+	background-color: #984200;
+	border: 1px solid;
+	cursor:pointer;
+}
+
+#btn-randomBeer:hover {
+	background:linear-gradient(to bottom, #984200 5%, #a25419 100%);
 }
 
 .abcRioButton {
@@ -182,7 +235,7 @@
 .randomBeerDisplay  {
 	background-image: url("../img/rustic-wood.jpg"); 
 	background-size: cover;
-	height: 30em;
+	height: 40em;
 	margin-top: 0;
 
 }
@@ -195,7 +248,17 @@
 
 }
 
-.randomBeerName {
+.randomBeer {
+	margin: 0 auto;
+	text-align: center;
+	background: rgba(0, 0, 0, 0.75);
+	margin-top: 5em;
+	width: 50%;
+	height: 30em;
+	border-radius: 5px;
+}
+
+/*.randomBeerName {
 	margin: 0 auto;
 	text-align: center;
 	background: rgba(0, 0, 0, 0.75);
@@ -203,7 +266,7 @@
 	width: 50%;
 	border-radius: 2px;
 	
-}
+}*/
 
 .randomBeerName h2  {
 	
@@ -216,20 +279,46 @@
 
 }
 
-.randomBeerDesc {
+/*.randomBeerDesc {
 	margin: 0 auto;
 	text-align: center;
 	width: 50%;
+	height: 25em;
 	background: rgba(0, 0, 0, 0.75);
+}*/
+
+.randomBeerDesc h3 {
+	color: red;
+	font-family: 'Indie Flower', cursive;
+	font-size: 24px;	
 }
 
 .randomBeerDesc p {
 	margin: auto;
 	font-family: 'Indie Flower', cursive;	
-	width: 50%;
-	color: white;
+	width: 50%;	
 	font-size: 18px;
 	color: red;
+	
+}
+
+.brewBuddyDescription-random {
+	margin-left: 3em;
+	text-align: center;
+
+}
+
+.brewBuddyDescription-random h2 {	
+	font-family: 'Indie Flower', cursive;
+	font-weight: bold;
+	color: #97f4e9;
+
+}
+
+.brewBuddyDescription-random p {	
+	font-family: 'Indie Flower', cursive;
+	color: white;
+	font-size: 20px;
 }
 
 
