@@ -3,8 +3,8 @@ import actions from '../actions/index';
 import store from '../store';
 import { connect } from 'react-redux';
 import { Grid, Row, Col, FormControl, FormGroup, ControlLabel, HelpBlock } from 'react-bootstrap';
-import { User } from '../users';
-import mongoose from 'mongoose';
+// import { User } from '../users';
+// import mongoose from 'mongoose';
 
 
 
@@ -15,17 +15,22 @@ class SignUp extends React.Component {
 	}
 
 	// getValidationState() {
- //    const length = this.state.value.length;
+ //    const length = this.props.formInput.length;
  //    if (length > 10) return 'success';
  //    else if (length > 5) return 'warning';
  //    else if (length > 0) return 'error';
  //    store.dispatch(actions.byEthnicity(store.getState().selectedEthnicity));
- //  },
+ //  }
 
   	handleChange(e) {
     // this.setState({ value: e.target.value });
-    store.dispatch(actions.formValidator(e.target.value));
+    store.dispatch(actions.formValidator(e.target.name, e.target.value));
     console.log(e.target.value);
+  }
+
+    onClick(e){
+        e.preventDefault();
+
   }
 
 
@@ -40,31 +45,35 @@ class SignUp extends React.Component {
         			>
           		<ControlLabel>Name</ControlLabel>
           		<FormControl
+                    name="name"
             		type="text"
             		value={this.props.formInput}
             		placeholder="Enter your name"
-            		onChange={this.handleChange} />
+            		onChange={this.handleChange} required />
 
             	<ControlLabel>Email</ControlLabel>
             	<FormControl
+                    name="email"
             		type="text"
             		value={this.props.formInput}
             		placeholder="Enter your email address"
-            		onChange={this.handleChange} />
+            		onChange={this.handleChange} required />
 
             	<ControlLabel>Username</ControlLabel>
             	<FormControl
+                    name="username"
             		type="text"
             		value={this.props.formInput}
             		placeholder="Choose a username"
-            		onChange={this.handleChange} />
+            		onChange={this.handleChange} required />
 
             	<ControlLabel>Password</ControlLabel>
             	<FormControl
+                    name="password"
             		type="text"
             		value={this.props.formInput}
             		placeholder="Enter your password"
-            		onChange={this.handleChange} />
+            		onChange={this.handleChange} required />
           				
           			<FormControl.Feedback />          			
         		</FormGroup>

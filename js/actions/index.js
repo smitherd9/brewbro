@@ -5,6 +5,16 @@ const ADD_USER = 'ADD_USER';
 const addNewUser = (user) => {
 	return {
 		type: ADD_USER,
+		user: user,
+        userName: user.userName
+		
+	}
+}
+
+const ADD_USER_ERROR = 'ADD_USER_ERROR';
+const addNewUserError = (user) => {
+	return {
+		type: ADD_USER_ERROR,
 		user: user
 		
 	}
@@ -15,10 +25,11 @@ const addNewUser = (user) => {
 
 
 const FORM_VALIDATOR = 'FORM_VALIDATOR';
-const formValidator = (input) => {
+const formValidator = (inputType, inputValue) => {
 	return {
 		type: FORM_VALIDATOR,
-		input: input
+		inputType: inputType,
+        inputValue: inputValue
 		
 	}
 }
@@ -66,7 +77,7 @@ const hideSignUpModal = () => {
 const RANDOM_BEER_SUCCESS = 'RANDOM_BEER_SUCCESS';
 const randomBeerSuccess = (response) => {
 	return {
-		type: RANDOM_BEER,
+		type: RANDOM_BEER_SUCCESS,
 		response: response		
 		
 	}
@@ -82,10 +93,88 @@ const randomBeerError = (response, error) => {
 	}
 }
 
+const SHOW_LOADING_ANIM = 'SHOW_LOADING_ANIM';
+const showLoadingAnim = (value) => {
+	return {
+		type: SHOW_LOADING_ANIM,
+        value: value
+		
+	}
+}
+
+
+const HIDE_LOADING_ANIM = 'HIDE_LOADING_ANIM';
+const hideLoadingAnim = (value) => {
+    return {
+        type: HIDE_LOADING_ANIM,
+        value: value
+        
+    }
+}
+
+const RESET_NOW = 'RESET_NOW';
+const resetNow = () => {
+    return {
+        type: RESET_NOW
+        
+        
+    }
+}
+
+
+
+const TICK = 'TICK';
+const tick = () => {
+    return {
+        type: TICK,
+    }
+}
+
 
 
 
 // Action Creators 
+
+const addUser = function(name, username, password, email) {
+    return function(dispatch) {
+        var url = new Request('http://localhost:8000/user', 
+
+        	{method: 'POST', 
+        	headers: {
+  				'Accept': 'application/json',
+  				'Content-Type': 'application/json'
+  			},
+            body: JSON.stringify({
+                name: name,
+                username: username,
+                password: password,
+                email: email
+            }) 
+   		});
+        return fetch(url).then(function(response) {
+            if (response.status < 200 || response.status >= 300) {
+                var error = new Error(response.statusText)
+                error.response = response
+                throw error;
+            }
+            return response;
+        })
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+        console.log(data);            
+            return dispatch(
+                addNewUser(data)
+            );
+        })
+        .catch(function(data, err) {
+            return dispatch(
+                addNewUserError(data, err)
+            );
+        });
+    }
+};
 
 const getRandomBeer = function() {
     return function(dispatch) {
@@ -108,7 +197,8 @@ const getRandomBeer = function() {
         .then(function(response) {
             return response.json();
         })
-        .then(function(data) {            
+        .then(function(data) {
+        console.log(data);            
             return dispatch(
                 randomBeerSuccess(data)
             );
@@ -126,6 +216,7 @@ const getRandomBeer = function() {
 
 exports.ADD_USER = ADD_USER;
 exports.addNewUser = addNewUser;
+exports.addUser = addUser;
 
 exports.FORM_VALIDATOR = FORM_VALIDATOR;
 exports.formValidator = formValidator;
@@ -149,3 +240,17 @@ exports.randomBeerSuccess = randomBeerSuccess;
 
 exports.RANDOM_BEER_ERROR = RANDOM_BEER_ERROR;
 exports.randomBeerError = randomBeerError;
+
+exports.SHOW_LOADING_ANIM = SHOW_LOADING_ANIM;
+exports.showLoadingAnim = showLoadingAnim;
+
+exports.HIDE_LOADING_ANIM = HIDE_LOADING_ANIM;
+exports.hideLoadingAnim = hideLoadingAnim;
+
+exports.TICK = TICK;
+exports.tick = tick;
+
+exports.RESET_NOW= RESET_NOW;
+exports.resetNow = resetNow;
+
+

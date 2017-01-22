@@ -6,7 +6,11 @@ const initialState = {
  	userAdded: false,
  	showModal: false,
  	showSignUpModal: false,
- 	randomBeer: []
+ 	showLoadingAnim: false,
+ 	randomBeer: null,
+ 	userLoggedIn: false,
+ 	userName: "",
+    now: 0
 }
 
 
@@ -14,10 +18,22 @@ const initialState = {
 const BeerReducer = function(state, action) {    
     state = state || initialState;
 
-    if (action.type === actions.NEW_USER) {
+    if (action.type === actions.ADD_USER) {
 
     	return Object.assign({}, state, {
-            userAdded: true
+            userAdded: true,
+            userLoggedIn: true,
+            userName: actions.user.userName
+            
+
+
+        });
+    }
+
+    if (action.type === actions.ADD_USER_ERROR) {
+
+    	return Object.assign({}, state, {
+            userAdded: false
             
 
 
@@ -26,11 +42,9 @@ const BeerReducer = function(state, action) {
 
 
     if (action.type === actions.FORM_VALIDATOR) {
-
-    	return Object.assign({}, state, {
-            formInput: action.formInput           
-
-        });
+        let obj = {}
+        obj[action.inputType] = action.inputValue
+    	return Object.assign({}, state, obj);
     }
 
 
@@ -69,7 +83,8 @@ const BeerReducer = function(state, action) {
     if (action.type === actions.RANDOM_BEER_SUCCESS) {
 
     	return Object.assign({}, state, {
-            randomBeer: action.response   
+            randomBeer: action.response           
+             
 
         });
     }
@@ -80,6 +95,34 @@ const BeerReducer = function(state, action) {
     	return Object.assign({}, state, {
             randomBeer: action.error   
 
+        });
+    }
+
+    if (action.type === actions.SHOW_LOADING_ANIM) {
+
+    	return Object.assign({}, state, {
+            showLoadingAnim: true  
+
+        });
+    }
+
+    if (action.type === actions.HIDE_LOADING_ANIM) {
+
+        return Object.assign({}, state, {
+            showLoadingAnim: false  
+
+        });
+    }
+
+    if(action.type === actions.TICK){
+        return Object.assign({}, state, {
+            now: state.now + Math.floor((Math.random() * 100) + 2)
+        });
+    }
+
+    if(action.type === actions.RESET_NOW){
+        return Object.assign({}, state, {
+            now: 0
         });
     }
 

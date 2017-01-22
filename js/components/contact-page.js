@@ -12,11 +12,14 @@ export default class ContactPage extends React.Component {
 	render() {
 		return (
 			<div className="contact-page">
-				<h1>Get in touch!</h1>
-					<Row>
-						<Col md={6}><ContactForm /> </Col>
-						<Col md={6}><ContactComments /> </Col>
-					</Row>	
+			
+				<div className="hops">
+				<img src="../../img/hops1.jpg" />
+				</div>
+				<h1>Do you love beer as much as we do?</h1>
+				<h3>Send us your questions, concerns or comments.</h3>
+					
+				<ContactForm /> 					
 
 			
 			
