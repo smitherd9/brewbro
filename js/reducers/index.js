@@ -11,6 +11,7 @@ const initialState = {
  	userLoggedIn: false,
  	userName: "",
     now: 0
+
 }
 
 

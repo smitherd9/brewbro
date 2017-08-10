@@ -13,8 +13,8 @@ class RandomBeerButton extends React.Component {
 
 	}
 
-		handleClick() {
-			store.dispatch(actions.showLoadingAnim());
+		handleClick() {			
+			store.dispatch(actions.showLoadingAnim());						
 			store.dispatch(actions.getRandomBeer());
 			this._tick();
 			store.dispatch(actions.resetNow());
@@ -33,8 +33,10 @@ class RandomBeerButton extends React.Component {
 		_tick(){
 			var self = this;
 			console.log(this.props.now);
+			console.log(this.props.variable);
+			console.log(this.props.randomBeer);
 			this.interval = setTimeout(function(){
-				if(self.props.now >= 100){
+				if(self.props.now >= 100 || self.props.randomBeer != null){
 					self.interval = undefined;
 					store.dispatch(actions.hideLoadingAnim());
 					return;
@@ -77,7 +79,8 @@ let mapStateToProps = (state, props) => {
     return {
     	showLoadingAnim: state.showLoadingAnim,    	
     	randomBeer: state.randomBeer,
-    	now: state.now  	
+    	now: state.now,
+    	variable: state.variable  	
         
     }
 };

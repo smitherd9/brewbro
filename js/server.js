@@ -22,7 +22,7 @@ const BeerResponse = {
 
 
 
-mongoose.connect('mongodb://localhost/beers').then(function(err, db) {        // will make dir automatically
+mongoose.connect('mongodb://localhost/beers').then(function(err, db) {  // will make dir automatically
     if (err) {
         console.error(err);
         db.close()
@@ -59,6 +59,7 @@ app.post('/user', function(req, res) {
 
 	}, function(err, user) {
 		if (err) {
+            console.log(err);
 			return res.status(500).json({
                 message: 'Internal Server Error'
             });
@@ -106,7 +107,9 @@ app.put('/user/:id', function(req, res){
 // use post for add a new user 
 // use put for edit user
 // use delete for delete user
-// users need to be able to store their preferences   Get beer types from brewery db 
+// users need to be able to store their preferences   
+
+// Get beer types from brewery db 
 
 
 
@@ -119,7 +122,8 @@ app.get('/beer/random', function(req, res) {
         .end(function(response) {
         	console.log(response.body);
         // pushToRandomBeer(response.body.data);               
-        res.json(response.body.data);              
+        res.json(response.body.data);
+                      
 
         });
 });
