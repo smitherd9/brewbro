@@ -120,7 +120,6 @@ app.get('/beer/random', function(req, res) {
         .query(req.query)
 
         .end(function(response) {
-        	console.log(response.body);
         // pushToRandomBeer(response.body.data);               
         res.json(response.body.data);
                       
