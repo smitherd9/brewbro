@@ -14,6 +14,14 @@
 	list-style-type: none;
 }
 
+/*.navbar-brand > a {
+	color: #9d9d9d;
+}*/
+
+a[role^="button"] {
+	color: #9d9d9d;
+}
+
 /*Jumbotron*/
 
 
@@ -27,7 +35,7 @@
 .jumbotronText {
 	margin: 0 auto;
 	text-align: center;
-	color: #97f4e9;
+	color: #FFFE50;
 	font-family: 'Carter-One', cursive;
 }
 
@@ -59,15 +67,17 @@
 
 
 .box {
-	background-color: #6b6168;
+	background: #232526;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 	width: 27em;
 	padding-left: 40px;
 	padding-right: 40px;
 	padding-top: 1em;
 	padding-bottom: 1em;
 	margin: auto;
-/*	border: 1px solid blue;
-	border-radius: 4px;*/
+
 	
 }
 
@@ -121,16 +131,23 @@
 }
 
 .modal-header {
-	font-family: 'Carter-One', cursive;
-	background-color: #7b7279;
+	font-family: 'Carter-One', cursive;	
 	font-size: 24px;
-	border-radius: 4px; 
+	background: #232526;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	
 }
 
 .modal-body {
-	background-color: #5b5058;
+	
+	background: #232526;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 	color: #eeedee;
-	font-family: 'Indie Flower', cursive;
+	font-family: 'Roboto Slab', cursive;
 	text-align: center;
 }
 
@@ -145,28 +162,31 @@
 }
 
 .modal-footer {
-	background-color: #7b7279;
-	border-radius: 4px; 
+	
+	background: #232526;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	
 }
 
 .modalFooter-btn {	
-	box-shadow: 3px 4px 0px 0px #1564ad;
-	background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);	
-	background-color:#79bbff;
+	background-color: transparent;
 	border-radius:5px;
-	border:1px solid #337bc4;
+	border:1px solid #ffffff;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
-	font-family: 'Indie Flower', cursive;
+	color: #ffffff;
+	font-family: 'Roboto Slab', cursive;
 	font-size:15px;
 	font-weight:bold;
 	padding:5px 25px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #528ecc;
+	
 }
 
 .modalFooter-btn:hover {
+	color: #ffffff;
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #378de5), color-stop(1, #79bbff));
 	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
 	background-color:#378de5;
@@ -183,19 +203,14 @@
 
 /*Button Styles*/
 
-.randomBeer {
-	margin: 0 auto;
-	text-align: center;
-}
-
 #btn-randomBeer {
 	margin-top: 1em;
+	width: 100%;
 	font-family: 'Indie Flower', cursive;
-	font-weight: bold;
-	box-shadow: 3px 4px 0px 0px #883b00;
+	font-weight: bold;	
 	border-radius:5px;
-	background-color: #984200;
-	border: 1px solid;
+	background-color: transparent;
+	border: 1px solid #ffffff;
 	cursor:pointer;
 }
 
@@ -235,7 +250,7 @@
 .randomBeerDisplay  {
 	background-image: url("../img/rustic-wood.jpg"); 
 	background-size: cover;
-	height: 40em;
+	/*height: 40em;*/
 	margin-top: 0;
 
 }
@@ -252,7 +267,7 @@
 	margin: 0 auto;
 	text-align: center;
 	background: rgba(0, 0, 0, 0.75);
-	margin-top: 5em;
+	margin-top: 9em;
 	width: 50%;
 	height: 30em;
 	border-radius: 5px;
@@ -304,14 +319,16 @@
 
 .brewBuddyDescription-random {
 	margin-left: 3em;
+	padding: 5em;
 	text-align: center;
 
 }
 
 .brewBuddyDescription-random h2 {	
-	font-family: 'Indie Flower', cursive;
+	font-family: 'Roboto Slab', cursive;
 	font-weight: bold;
-	color: #97f4e9;
+	color: #FFFE50;
+	padding: 1em;
 
 }
 

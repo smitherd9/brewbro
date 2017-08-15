@@ -77,7 +77,7 @@ class Header extends React.Component {
             	<Modal.Title>What is BrewBuddy?</Modal.Title>
           		</Modal.Header>
           			<Modal.Body>
-            			<h4>Beer recommendations at the touch of a button</h4>
+            			<h3>Beer recommendations at the touch of a button.</h3>
             			<p>BrewBuddy helps you find mouthwatering beers you're bound to love.</p>
             			<p>It gives you recommendations based on your stated preferences,
             				or you can just get a tasty beer suggestion at random.</p>

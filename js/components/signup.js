@@ -19,7 +19,7 @@ class SignUp extends React.Component {
  //    if (length > 10) return 'success';
  //    else if (length > 5) return 'warning';
  //    else if (length > 0) return 'error';
- //    store.dispatch(actions.byEthnicity(store.getState().selectedEthnicity));
+
  //  }
 
   	handleChange(e) {
