@@ -46,6 +46,8 @@ class Header extends React.Component {
       store.getState().password,
       store.getState().email
       ));
+    store.dispatch(actions.hideSignUpModal());
+    console.log(this.props);
 	}
 
 
@@ -92,7 +94,7 @@ class Header extends React.Component {
 
         		<Modal show={this.props.showSignUpModal} onHide={this.closeSignUp}>
           		<Modal.Header closeButton>
-            	<Modal.Title> Sign Up</Modal.Title>
+            	<Modal.Title>Sign Up</Modal.Title>
           		</Modal.Header>
           			<Modal.Body>
             			<SignUp />            			
@@ -119,9 +121,7 @@ let mapStateToProps = (state, props) => {
     	userLoggedIn: state.userLoggedIn,
     	userAdded: state.userAdded,
     	userName: state.userName
-    	
-    	
-        
+
     }
 };
 

@@ -24,9 +24,7 @@ const BeerReducer = function(state, action) {
     	return Object.assign({}, state, {
             userAdded: true,
             userLoggedIn: true,
-            userName: actions.user.userName
-            
-
+            userName: actions.user.userName        
 
         });
     }
@@ -35,8 +33,6 @@ const BeerReducer = function(state, action) {
 
     	return Object.assign({}, state, {
             userAdded: false
-            
-
 
         });
     }

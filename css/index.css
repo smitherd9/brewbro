@@ -20,6 +20,11 @@
 
 a[role^="button"] {
 	color: #9d9d9d;
+	text-decoration: none;
+}
+
+a[role^="button"]:hover {
+	color: #ffffff;
 }
 
 /*Jumbotron*/
@@ -209,13 +214,21 @@ a[role^="button"] {
 	font-family: 'Indie Flower', cursive;
 	font-weight: bold;	
 	border-radius:5px;
-	background-color: transparent;
-	border: 1px solid #ffffff;
+/*	background-color: transparent;*/
+	background: #1e130c;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #9a8478, #1e130c);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #9a8478, #1e130c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	color: #ffffff;
+	border: 1px solid #FFFE50;
 	cursor:pointer;
 }
 
 #btn-randomBeer:hover {
-	background:linear-gradient(to bottom, #984200 5%, #a25419 100%);
+	background: #1e130c;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #9a8478, #1e130c);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #9a8478, #1e130c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .abcRioButton {
@@ -249,8 +262,7 @@ a[role^="button"] {
 
 .randomBeerDisplay  {
 	background-image: url("../img/rustic-wood.jpg"); 
-	background-size: cover;
-	/*height: 40em;*/
+	background-size: cover;	
 	margin-top: 0;
 
 }
@@ -269,7 +281,7 @@ a[role^="button"] {
 	background: rgba(0, 0, 0, 0.75);
 	margin-top: 9em;
 	width: 50%;
-	height: 30em;
+	/*height: 30em;*/
 	border-radius: 5px;
 }
 
@@ -285,7 +297,7 @@ a[role^="button"] {
 
 .randomBeerName h2  {
 	
-	font-family: 'Indie Flower', cursive;
+	font-family: 'Roboto Slab', cursive;
 	font-weight: bold;
 	margin: auto;
 	width: 50%;
@@ -302,18 +314,24 @@ a[role^="button"] {
 	background: rgba(0, 0, 0, 0.75);
 }*/
 
+.randomBeerStyle h3 {
+	color: #FFFE50;
+	font-family: 'Roboto Slab', cursive;
+	font-size: 24px;	
+}
+
 .randomBeerDesc h3 {
-	color: red;
-	font-family: 'Indie Flower', cursive;
+	color: #ffffff;
+	font-family: 'Roboto Slab', cursive;
 	font-size: 24px;	
 }
 
 .randomBeerDesc p {
 	margin: auto;
-	font-family: 'Indie Flower', cursive;	
+	font-family: 'Roboto Slab', cursive;	
 	width: 50%;	
-	font-size: 18px;
-	color: red;
+	font-size: 16px;
+	color: chocolate;
 	
 }
 
@@ -333,7 +351,7 @@ a[role^="button"] {
 }
 
 .brewBuddyDescription-random p {	
-	font-family: 'Indie Flower', cursive;
+	font-family: 'Roboto Slab', cursive;
 	color: white;
 	font-size: 20px;
 }

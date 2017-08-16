@@ -64,7 +64,6 @@ describe('/beer/random', () => {
 });
 
 
-
      it('should return status code 200 and json on GET', function(done) {
         chai.request(app)
             .get('/beer/random/')

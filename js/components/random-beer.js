@@ -17,7 +17,10 @@ class RandomBeer extends React.Component {
 		return (
 			<div className="randomBeer">
 			<div className="randomBeerName">
-				<h2>Name: {this.props.randomBeer.name}</h2>				
+				<h2>{this.props.randomBeer.name}</h2>				
+			</div>
+			<div className="randomBeerStyle">
+				<h3>{this.props.randomBeer.style.name}</h3>
 			</div>
 
 			<div className="randomBeerDesc">

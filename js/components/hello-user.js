@@ -9,6 +9,7 @@ class HelloUser extends React.Component {
 	constructor(props) {
 		super(props);
 
+
 	}
 
 
@@ -28,6 +29,7 @@ class HelloUser extends React.Component {
 
 let mapStateToProps = (state, props) => {
     return {
+    	userLoggedIn: state.userLoggedIn,
     	userName: state.userName   	
         
     }
