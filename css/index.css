@@ -242,7 +242,19 @@ a[role^="button"]:hover {
 	text-align: center;
 }
 
+.searchScreen-btn {
+	background: #1e130c;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #9a8478, #1e130c);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #9a8478, #1e130c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+
+}
+
+
+.searchButtonRow-home {
+	text-align: center;
+	margin: 0 auto;
+}
 
 
 /*Contact Page*/
@@ -306,13 +318,6 @@ a[role^="button"]:hover {
 
 }
 
-/*.randomBeerDesc {
-	margin: 0 auto;
-	text-align: center;
-	width: 50%;
-	height: 25em;
-	background: rgba(0, 0, 0, 0.75);
-}*/
 
 .randomBeerStyle h3 {
 	color: #FFFE50;
@@ -386,4 +391,12 @@ a[role^="button"]:hover {
 	height: 25%;
 	margin: 0 auto;
 	text-align: center;
+}
+
+
+/*Search Screen Styles*/
+
+.searchRow {
+	text-align: center;
+	margin: 0 auto;
 }

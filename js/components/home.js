@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { Grid, Row, Col, Jumbotron, Button } from 'react-bootstrap';
 import SignUp from './signup';
 import RandomBeerDisplay from './random-beer-display';
+import { browserHistory } from 'react-router';
+
+
 
 
 
@@ -19,6 +22,10 @@ export default class Home extends React.Component {
     auth2.signOut().then(function () {
       console.log('User signed out.');
     });
+	}
+
+	searchScreen() {
+		browserHistory.push('/search');
 	}
 
 	render() {
@@ -39,6 +46,11 @@ export default class Home extends React.Component {
 			
 			<Row>
 			<RandomBeerDisplay />
+			</Row>
+
+			<Row className="searchButtonRow-home">
+				<Button className="searchScreen-btn" bsStyle="primary" bsSize="large" onClick={this.searchScreen}>Search for your favorite styles</Button>
+
 			</Row>
 			
 			

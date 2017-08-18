@@ -10,7 +10,8 @@ const initialState = {
  	randomBeer: null,
  	userLoggedIn: false,
  	userName: "",
-    now: 0
+    now: 0,
+    selectedBeer: 'British Origin Ales'
 
 }
 
@@ -120,6 +121,21 @@ const BeerReducer = function(state, action) {
     if(action.type === actions.RESET_NOW){
         return Object.assign({}, state, {
             now: 0
+        });
+    }
+
+    if (action.type === actions.SELECTED_BEER) {
+
+        return Object.assign({}, state, {
+            selectedBeer: action.selectedBeer     
+
+        });
+    }
+
+    if (action.type === actions.FIND_BEER_SUCCESS) {
+        console.log('action.response.name:' + action.response.name);
+        return Object.assign({}, state, {
+            selectedBeer: action.response.name
         });
     }
 

@@ -47,7 +47,7 @@ class Header extends React.Component {
       store.getState().email
       ));
     store.dispatch(actions.hideSignUpModal());
-    console.log(this.props);
+    
 	}
 
 

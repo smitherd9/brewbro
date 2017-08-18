@@ -128,6 +128,22 @@ app.get('/beer/random', function(req, res) {
 });
 
 
+app.get('/category/:id', function(req, res) {   
+    req.query.key = '9e764e155ee83a9a98485bdf8ccbff50';
+        console.log(req.query);
+        unirest.get('http://api.brewerydb.com/v2/category/' + req.params.id)
+        .query(req.query)       
+
+        .end(function(response) {                      
+        res.json(response.body.data);
+        console.log(JSON.stringify(response));
+        console.log(JSON.stringify(response.body));
+                      
+
+        });
+});
+
+
 
 
 const pushToRandomBeer = function(response) {

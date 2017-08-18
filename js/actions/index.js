@@ -131,6 +131,32 @@ const tick = () => {
 }
 
 
+const SELECTED_BEER = 'SELECTED_BEER';
+const selectedBeer = (selected) => {
+    return {
+        type: SELECTED_BEER,
+        selectedBeer: selected
+    }
+}
+
+const FIND_BEER_SUCCESS = 'FIND_BEER_SUCCESS';
+const findBeerSuccess = (response) => {
+    return {
+        type: FIND_BEER_SUCCESS,
+        response: response
+    }
+}
+
+const FIND_BEER_ERROR = 'FIND_BEER_ERROR';
+const findBeerError = (response, error) => {
+    return {
+        type: FIND_BEER_ERROR,
+        response: response,
+        error: error
+    }
+}
+ 
+
 
 
 // Action Creators 
@@ -212,6 +238,42 @@ const getRandomBeer = function() {
 };
 
 
+const getSpecificBeer = function(id) {
+    return function(dispatch) {
+        var url = new Request('http://localhost:8000/category/' + id, 
+
+            {method: 'GET', 
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        });
+        return fetch(url).then(function(response) {
+            if (response.status < 200 || response.status >= 300) {
+                var error = new Error(response.statusText)
+                error.response = response
+                throw error;
+            }
+            return response;
+        })
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+        console.log(data);            
+            return dispatch(
+                findBeerSuccess(data)
+            );
+        })
+        .catch(function(data, err) {
+            return dispatch(
+                findBeerError(data, err)
+            );
+        });
+    }
+};
+
+
 
 
 exports.ADD_USER = ADD_USER;
@@ -250,7 +312,18 @@ exports.hideLoadingAnim = hideLoadingAnim;
 exports.TICK = TICK;
 exports.tick = tick;
 
-exports.RESET_NOW= RESET_NOW;
+exports.RESET_NOW = RESET_NOW;
 exports.resetNow = resetNow;
+
+exports.SELECTED_BEER = SELECTED_BEER;
+exports.selectedBeer = selectedBeer;
+
+exports.FIND_BEER_SUCCESS = FIND_BEER_SUCCESS;
+exports.findBeerSuccess = findBeerSuccess;
+
+exports.FIND_BEER_ERROR = FIND_BEER_ERROR;
+exports.findBeerError = findBeerError;
+
+exports.getSpecificBeer = getSpecificBeer;
 
 
